@@ -1,0 +1,65 @@
+For my blog article about the "mid" utility, visit
+  http://thetenacioustechie.com/blog/the-case-of-the-missing-midsection/
+
+mid: This command-line utility will print out specified
+lines in the middle of a file.
+
+---------------------------------------------------------
+
+To build in Linux:
+$ gcc mid.c -o mid
+(Creates executable file "mid")
+
+To build in cygwin's Bash prompt:
+$ gcc mid.c -o mid.exe
+(Creates executable file "mid.exe")
+
+To build in Windows Visual C++ Command Prompt:
+DOS_PROMPT> cl /TP mid.c 
+(Creates executable file "mid.exe")
+
+---------------------------------------------------------
+
+To view help:
+
+$ mid --help
+
+---------------------------------------------------------
+
+Note that the executable file must then be copied
+to a place that is part of your PATH.
+
+e.g., on Linux/UNIX, if your PATH=/usr/bin;/home/joe/bin,
+copy "mid" to /home/joe/bin
+
+on Windows, if your PATH=C:\Windows\Bin;C:\joe\bin,
+copy "mid.exe" to C:\joe\bin
+
+To view PATH in Linux/UNIX:
+$ echo $PATH
+OUTPUT: /usr/bin:/usr/joe/bin
+
+To view PATH in Windows:
+DOS_PROMPT> echo %PATH%
+OUTPUT: C:\Windows\Bin;C:\joe\bin
+
+-----------------------------------------------------------
+
+To add /home/joe/bin to PATH in Linux/UNIX:
+Find .profile or .bashrc line that looks like this:
+  PATH="$PATH:/usr/bin"
+And modify it like this:
+  PATH="$PATH:/usr/bin:/usr/joe/bin"
+
+To add C:\joe\bin to PATH in Windows 7:
+1. Go to Control Panel => System
+2. Click on "Advanced System Settings"
+3. Click on "Environment Variables" at bottom of Advanced tab of System Properties dialog that pops up.
+4. Under System Variables, click on "Path" or "PATH" and hit the "Edit" button.
+5. Append ";C:\joe\bin" to the end of the Variable Value.
+6. Hit the OK button.
+
+NOTE that UNIX PATH elements are delimited by ":" while DOS/Windows PATH
+elements are delimited by ";".
+
+----------------------------------------------------------

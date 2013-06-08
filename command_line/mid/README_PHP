@@ -1,0 +1,16 @@
+For my blog article about the "mid" utility, visit
+  http://thetenacioustechie.com/blog/the-case-of-the-missing-midsection/
+
+mid.php: This command-line utility will print out specified
+lines in the middle of a file.
+
+To run this, you need to have PHP installed on your system, and make
+sure the PHP interpreter is in your execute PATH.  
+
+An example of running this from the command-line:
+$ php mid.php -n02 8 10 declaration.txt
+
+The behavior should be the same as if you compile and run 
+mid.c as an executable, except, of course, much slower.
+
+

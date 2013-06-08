@@ -1,0 +1,44 @@
+isql_pdo.php:
+-------------
+An Interactive SQL web app that uses PHP's PDO to execute
+ queries and display their output.
+
+ <1> Uses obsolete 20th Century HTML FRAMES to display query info in top frame, 
+ and the executed query output at the bottom frame.
+
+ <2> Uses the Strategy design pattern so that output can be in the form 
+ of an HTML table, JSON, XML, CSV, tab-delimited, 
+ even SQL INSERT statements.  For SQL insert statements,
+ you must provide the name of the table.
+
+ TO GET THIS TO WORK:
+ 1. Install a LAMP or WAMP or MAMP stack.
+ 2. Install PDO and pdo_mysql.
+    (plus pdo_your_favorite_db_server for other DB server types...)
+ 3. Fill in appropriate g_assoc_servers[] entries in the JavaScript section
+ of isql_pdo.php where it says...
+
+      /* 
+      * -- FILL IN YOUR SERVER INFO HERE --
+      * --
+
+ ...so they display themselves in the "server:" dropdown.
+ 4. Point your browser to the location where Apache expects
+    to find isql_pdo.php, e.g., http://localhost/isql/isql_pdo.php.
+ 4. Fill in a Query or Queries terminated with ";" in the large
+    Queries textarea in the top frame.
+ 5. Hit the SUBMIT QUERY button.
+ 6. The output will appear in the bottom frame as HTML,
+    or JSON, XML, CSV, tab-delimited, or SQL INSERT statements. 
+ 7. If you did in UPDATE or INSERT rather than a SELECT,
+    it should print out "x row(s) affected" at the bottom
+    rather than the result set.
+
+ TODO: 
+ <1> Update to 21st Century, that is, without using
+ HTML FRAMES:
+  <A> Use AJAX to fill in the query output at the bottom
+    of a single page without having to refresh the entire
+    page, and/or...
+  <B> Use a SlickGrid jQuery widget as an optional "output".
+

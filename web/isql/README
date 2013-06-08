@@ -1,6 +1,6 @@
 isql_pdo.php:
 -------------
-An Interactive SQL web app that uses PHP's PDO to execute
+ An Interactive SQL web app that uses PHP's PDO to execute
  queries and display their output.
 
  <1> Uses obsolete 20th Century HTML FRAMES to display query info in top frame, 
@@ -11,7 +11,14 @@ An Interactive SQL web app that uses PHP's PDO to execute
  even SQL INSERT statements.  For SQL insert statements,
  you must provide the name of the table.
 
- TO GET THIS TO WORK:
+DEPENDENCIES:
+-------------
+QueryManager.php
+jutils.inc.php
+style4.css (hope you like robin-egg blue)
+
+TO GET THIS TO WORK:
+--------------------
  1. Install a LAMP or WAMP or MAMP stack.
  2. Install PDO and pdo_mysql.
     (plus pdo_your_favorite_db_server for other DB server types...)
@@ -34,7 +41,8 @@ An Interactive SQL web app that uses PHP's PDO to execute
     it should print out "x row(s) affected" at the bottom
     rather than the result set.
 
- TODO: 
+TODO: 
+-----
  <1> Update to 21st Century, that is, without using
  HTML FRAMES:
   <A> Use AJAX to fill in the query output at the bottom

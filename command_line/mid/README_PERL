@@ -1,0 +1,14 @@
+For my blog article about the "mid" utility, visit
+  http://thetenacioustechie.com/blog/the-case-of-the-missing-midsection/
+
+mid.pl: This command-line utility will print out specified
+lines in the middle of a file.
+
+To run this, you need to have Perl installed on your system, and make
+sure the Perl interpreter is in your execute PATH.  
+
+An example of running this from the command-line:
+$ perl mid.pl -n02 8 10 declaration.txt
+
+The behavior should be the same as if you compile and run 
+mid.c as an executable, except, of course, much slower.

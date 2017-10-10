@@ -20,14 +20,14 @@ using namespace std;
 
 const char* APP_NAME = "clipboard";
 
-const char* VERSION = "1.0";
+const char* VERSION = "1.0.1";
 
 void printFormat( ostream* op ){
 	*op << APP_NAME << " " << VERSION << "\n";
 	*op << "FORMAT:\n";
    	*op << " " << APP_NAME << " get" << "\n"; 
    	*op << " " << "-or-" << "\n";
-    *op << " " << APP_NAME << " set <text>" << endl;
+    *op << " " << APP_NAME << " set <text> [-dbg] [-sleep <sleep_time_milliseconds>]" << endl;
 }
 
 

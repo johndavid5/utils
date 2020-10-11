@@ -3,6 +3,7 @@
 #include <stdio.h>
 #include <string.h>
 
+#include <vector>
 #include <string>
 #include <iostream>
 using namespace std;
@@ -70,6 +71,7 @@ int main(int argc, char** argv){
 
 	std::string leVerb="";
 	std::string leText="";
+	std::vector<string> lesTextes=std::vector<string>();
 	bool debug = false;
 	int iSleep = 0;
 	
@@ -80,7 +82,8 @@ int main(int argc, char** argv){
 		else if( strcmp(argv[i], "set") == 0 ){
 			leVerb = "set";
 			if( i+1 < argc ){
-				leText = argv[++i];
+				//leText = argv[++i];
+				lesTextes.push_back(argv[++i]);
 			}
 		}
 		else if( strcmp( argv[i], "-dbg") == 0 ){ 
@@ -97,6 +100,11 @@ int main(int argc, char** argv){
 	if( debug ){
 		cout << APP_NAME << ": leVerb = '" << leVerb << "'" << endl;
 		cout << APP_NAME << ": leText = '" << leText << "'" << endl;
+		//cout << APP_NAME << ": lesTextes = '" << lesTextes << "'" << endl;
+		cout << APP_NAME << ": lesTextes.size() = '" << (size_t)lesTextes.size() << "'" << endl;
+        for(size_t i=0; i<lesTextes.size(); i++){
+		    cout << APP_NAME << ": lesTextes[" << i << "] = '" << lesTextes[i] << "'" << endl;
+        }
 		cout << APP_NAME << ": iSleep = " << iSleep << endl;
 	}
 
@@ -110,26 +118,38 @@ int main(int argc, char** argv){
 		exit(1);
 	}
 
-	if( leVerb == "set" && leText.length() == 0 ){
+	//if( leVerb == "set" && leText.length() == 0 ){
+	if (leVerb == "set" && lesTextes.size() == 0) {
 		printFormat( &cerr );
 		exit(1);
 	}
 
 	if( leVerb == "set" ){
-		putToClipBoard( leText );
-		cout << "set clipboard_text=\"" << leText << "\"" << endl;
+		cout << APP_NAME << ": lesTextes.size() = '" << (size_t)lesTextes.size() << "'" << endl;
+        for(size_t i=0; i<lesTextes.size(); i++){
+		    cout << "set clipboard_text = lesTextes[" << i << "] = '" << lesTextes[i] << "'" << endl;
+		    putToClipBoard( lesTextes[i] );
+
+	        if( iSleep > 0 ){
+        		cout << "Sleeping for " << iSleep << " milli-second" << (iSleep==1?"":"s") << "..." << endl;
+        		Sleep(iSleep);
+        	}
+        }
+		//putToClipBoard( leText );
+		//cout << "set clipboard_text=\"" << leText << "\"" << endl;
 	}
 	else if( leVerb == "get" ){
 		leText = getFromClipBoard();
 		cout << "got clipboard_text=\"" << leText << "\"" << endl;
 	}
 
-	if( iSleep > 0 ){
+	if( leVerb == "get" && iSleep > 0 ){
 		cout << "Sleeping for " << iSleep << " milli-second" << (iSleep==1?"":"s") << "..." << endl;
 		Sleep(iSleep);
 	}
 
-	cout << "Hasta la vista, Baby..." << endl;
+	//cout << "Hasta la vista, Baby..." << endl;
+	cout << "Let off some steam, Bennett!" << endl;
 
 	exit(0);
 
